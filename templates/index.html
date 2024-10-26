@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avtomobil raqami generatori</title>
+</head>
+<body>
+    <h1>Avtomobil raqami generatori</h1>
+    <form action="/app.py" method="post">
+        <label for="region">Viloyatni tanlang:</label>
+        <select name="region" id="region" required>
+            <option value="Toshkent" {% if region == "Toshkent" %}selected{% endif %}>Toshkent</option>
+            <option value="Samarqand" {% if region == "Samarqand" %}selected{% endif %}>Samarqand</option>
+            <option value="Andijon" {% if region == "Andijon" %}selected{% endif %}>Andijon</option>
+            <option value="Buxoro" {% if region == "Buxoro" %}selected{% endif %}>Buxoro</option>
+            <option value="Qoraqalpog'iston" {% if region == "Qoraqalpog'iston" %}selected{% endif %}>Qoraqalpog'iston</option>
+            <option value="Farg‘ona" {% if region == "Farg‘ona" %}selected{% endif %}>Farg‘ona</option>
+            <option value="Namangan" {% if region == "Namangan" %}selected{% endif %}>Namangan</option>
+            <option value="Jizzax" {% if region == "Jizzax" %}selected{% endif %}>Jizzax</option>
+            <option value="Surxondaryo" {% if region == "Surxondaryo" %}selected{% endif %}>Surxondaryo</option>
+            <option value="Qashqadaryo" {% if region == "Qashqadaryo" %}selected{% endif %}>Qashqadaryo</option>
+            <option value="Sirdaryo" {% if region == "Sirdaryo" %}selected{% endif %}>Sirdaryo</option>
+            <option value="Navoiy" {% if region == "Navoiy" %}selected{% endif %}>Navoiy</option>
+            <option value="Xorazm" {% if region == "Xorazm" %}selected{% endif %}>Xorazm</option>
+        </select>
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if uz_auto_number %}
+        <h2>Yaratilgan raqam: {{ uz_auto_number }}</h2>
+        <h3>Viloyat: {{ region_name }}</h3>
+        <h3>Raqam narxi: {{ price }}</h3>
+    {% endif %}
+
+    <h2><a href="/admin">raqam izlash</a></h2>
+</body>
+</html>

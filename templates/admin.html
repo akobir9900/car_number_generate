@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <form action="/admin/app.py" method="post">
+        <label for="number">Raqamni kiriting (masalan: "75 A 777 AA"):</label>
+        <input type="text" name="number" id="number" required>
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if error %}
+        <h3 style="color: red;">{{ error }}</h3>
+    {% endif %}
+
+    {% if generated_number %}
+        <h2>Topilgan raqam: {{ generated_number }}</h2>
+        <h3>Raqam narxi : {{ price }}</h3>
+        <h3>Viloyat: {{ region_name }}</h3>
+    {% endif %}
+
+    <h2><a href="/">Asosiy sahifaga qaytish</a></h2>
+</body>
+</html>
